@@ -1,0 +1,24 @@
+#themsanpham_form {
+    width: 100%;
+    padding: 3rem 5rem;
+    background-color: rgba(84, 106, 114, 0.623);
+    border-radius: 1rem;
+    font-size: 1em !important;
+   & h1 {
+        text-align: center;
+        color: white;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 2.5rem;
+    }
+   & input {
+        min-height: 3rem;
+        border-radius: 3px !important;
+    }
+    & textarea {
+        border-radius: 3px !important;
+    }
+    #themsanpham_submit_btn {
+        float: right;
+        font-size: .9em !important;
+    }
+}

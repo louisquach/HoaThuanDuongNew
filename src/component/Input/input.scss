@@ -1,0 +1,28 @@
+.input__container {
+    margin: 1.5rem 0;
+    &-input {
+        width: 100%;
+        padding: .7rem 1.5rem;
+        display: block;
+        font-size: 1.5rem;
+        border-radius: 2rem;
+        outline: none;
+        color: darkgrey; 
+        transition: all .3s;
+        &:focus {
+            border: 2px solid #1dd3bd;  
+            box-shadow:  1px 1px .5rem #1dd3bd,
+            -1px -1px .5rem #1dd3bd;
+        }  
+    }
+    
+
+    label {
+        padding-left: 1rem;
+        font-size: .7em;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #fff;
+    }
+}
