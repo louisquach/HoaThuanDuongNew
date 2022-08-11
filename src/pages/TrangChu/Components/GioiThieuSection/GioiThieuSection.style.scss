@@ -1,0 +1,83 @@
+#trangchu-gioithieu {
+    height: 75vh;
+    width: 100%;
+    margin: 5rem 0 2rem;
+    background-image: url('./../../../../../public/images/product-bg.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 10;
+    #cloned-section {
+        height: 100%;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.658);
+    }
+
+    .gioithieu-container {
+        width: 70%;
+        height: 100%;
+        padding: 3rem;
+        margin: 0 auto;
+        display: flex;
+        
+
+        .gioithieu-img-container {
+            position: relative;
+            width: 50%;
+            height: 100%;
+
+            #hinh-nha-thuoc1, #hinh-nha-thuoc2, #hinh-nha-thuoc3 {
+                position: absolute;
+                width: 65%;
+                box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.562);
+                transition: all ease-in-out .5s;
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+            #hinh-nha-thuoc1 {
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 3;
+                &:hover {
+                    top: 50%;
+                    transform: translateY(-50%) scale(1.1);
+                    z-index: 5;
+                }
+            }
+            #hinh-nha-thuoc2 {
+                right: 15%;
+                top: 0;
+                z-index: 2;
+                &:hover {
+                    z-index: 4;
+                }
+            }
+            #hinh-nha-thuoc3 {
+                right: -3%;
+                bottom: 10%;
+                z-index: 1;
+                &:hover {
+                    z-index: 4;
+                }
+            }
+        }
+        .gioithieu-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('../../../../../public/images/product-bg.jpeg');
+            width: 50%;
+            overflow: hidden;
+
+            .gioithieu-paraph {
+                padding: 2rem;
+                font-size: 1.6em;
+                padding-left:4rem;
+                line-height: 2.5rem;
+                min-height: 100%;
+                background-color: rgba(255, 255, 255, 0.658);
+            }
+        }
+    }
+}

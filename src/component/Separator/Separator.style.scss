@@ -1,0 +1,16 @@
+.section-separator {
+    background-color: #e7ab79;
+    height: 1.2px;
+    width: 25vw;
+    margin: 2rem auto 1rem;
+    position: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+
+    img {
+        height: 2.5rem;
+        margin-top: 1rem;
+    }
+}

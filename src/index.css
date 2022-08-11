@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'poppins', 'Times New Roman' , sans-serif;
+  font-family: 'Times New Roman' , sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -12,4 +12,8 @@ code {
 
 #root {
   position: relative;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Times New Roman', Times, serif !important;
 }

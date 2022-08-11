@@ -1,0 +1,110 @@
+.tinnoibat-container {
+    max-width: 60%;
+    margin: 4rem auto;
+    min-height: 30rem;
+    display: flex;
+    box-shadow: 5px 5px 10px grey;
+    border-radius: 1.3rem;
+    justify-content: center;
+    align-items: center;
+    background-image: url('./../../../../../public/images/header-bg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all ease-in-out .5s;
+    animation-name: appear;
+    animation-duration: 1s;
+
+    .tinnoibat-carousel {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 1.3rem;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    .tinnoibat-content {
+        height: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        border-radius: inherit;
+    }
+    .tinnoibat-img {
+        height: 40rem;
+        margin: 0;
+        border-radius: inherit;
+    }
+    .tinnoibat-text {
+        position: absolute;
+        height: 30%;
+        background-color: rgba(253, 253, 253, 0.89);
+        opacity: 0.6;
+        left: 0;
+        bottom: 0;
+        color: black;
+        padding: 2rem;
+        border-radius: inherit;
+        font-size: 1.3em;
+    }
+    .tinnoibat-thumbnail {
+        display:flex;
+        width: 50%;
+        height: 100%;
+        
+        .thumbnail-container {
+            width: 100%;
+            overflow: hidden;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+
+            .thumbnail-card {
+                width: 100%;
+                display: flex;
+                height: calc(100% / 7);
+                padding: 0.5rem 0 .5rem 2rem;
+                box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+                border-radius: 10px;
+                transition: all ease-in-out .3s;
+                align-items: center;
+                background-color: white;
+                margin-bottom: 1rem;
+
+                &.active {
+                    background-color: orange;
+                    color: white;
+                }
+                &:hover {
+                    transform: scale(1.025);
+                }
+            }
+            .thumbnail-img {
+                height: 4rem;
+                border-radius: 5px;
+            }
+            .thumbnail-title {
+                text-align: center;
+                padding: 1rem
+            }
+        }
+
+       
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        display: none;
+    }
+    50% {
+        display: flex;
+        opacity: .5;
+    }
+    100% {
+        opacity: 1;
+    }
+}

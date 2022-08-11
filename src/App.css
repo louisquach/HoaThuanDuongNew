@@ -3,3 +3,11 @@
     height: 100%;
     width: 100%;
 }
+
+.section-header {
+    padding-top: 3rem;
+    text-align: center;
+    font-size: 1.8rem;
+    color: #e49e48;
+    /* color: orange; */
+}

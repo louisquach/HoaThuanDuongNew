@@ -1,0 +1,41 @@
+#trangchu-sanpham {
+    height: 90vh;
+    width: 90%;
+    margin: 0 auto;
+
+    .sanpham-container {
+        width: 100%;
+        height: 100%;
+        padding:0 5rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .sanpham-card {
+        display: flex;
+        flex-direction: column;
+        width: 25%;
+        height: 8rem;
+        align-items: center;
+        padding: 2rem;
+        color: teal;
+        transition: all ease-in-out .4s;
+        margin-top: 2rem;
+        &:hover {
+            transform: scale(1.2);
+        }
+        h4 {
+            padding-top: 0;
+            margin: 0;
+            font-size: 1.3em;
+            text-transform: uppercase;
+        }
+
+        .sanpham-card-img {
+            width: 80%;
+            padding: 0;
+            
+        }
+    }
+}

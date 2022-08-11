@@ -1,5 +1,10 @@
+.header-container {
+    background-image: url("./../../../public/images/header-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 .header {
-    background-color: lightseagreen;
+    background-color: rgba(32, 178, 171, 0.767);
     width: 100%;
     padding: .5rem;
 }
@@ -21,5 +26,62 @@
     .zalo {
         height: 1.3rem;
         margin-left: .5rem;
+        margin-top: 4px;
+    }
+}
+
+.header-main {
+    display: flex;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.74);
+
+    .header-h4 {
+        margin: 0;
+        margin-bottom: 1rem;
+        font-size: 1em;
+        text-align: center;
+        color: teal;
+    }
+    .header-h1 {
+        margin: 0;
+        text-align: center;
+        font-size: 2em;
+        color: teal;
+    }
+    .header-logo {
+        height: 5.5rem;
+        margin-right: 2rem;
+        transition: all ease-in-out 0.3s;
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+    .header-main-intro {
+        display: flex;
+        width: 50%;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+    .header-main-nav {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+    }
+
+    .header-menu-item {
+        list-style: none;
+        display: inline-block;
+        padding: 1rem 2rem;
+        font-size: 1.3em;
+        font-weight: bold;
+        color: lightseagreen;
+        transition: all ease-in-out 0.2s;
+
+        &:hover, &:active, &.active {
+          border-bottom: 2px solid orange;  
+          color: orange;
+        }
+       
     }
 }

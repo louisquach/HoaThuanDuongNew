@@ -1,11 +1,25 @@
 import * as React from 'react';
+import {useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneVolume, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
+import { Link, useLocation } from 'react-router-dom';
 import './Header.style.scss';
 
-const Header = () => {
+const Header = ({menus}) => {
+    const [activeTab, setActiveTab] = useState('/');
+
+    const location = useLocation();
+    React.useEffect( () => {
+        if (location !== null) {
+            console.log(location.pathname)
+            setActiveTab(location.pathname)
+            console.log(activeTab, 'at')
+        }
+    },[location])
+
     return (
+        <div className={'header-container'}>
         <div className={'header'}>
              <div className={'social-contact'}>
                 <div className={'header-phone-box'}>
@@ -34,6 +48,24 @@ const Header = () => {
                     </a>
                 </div>
              </div>
+        </div>
+        <div className={'header-main'}>
+            <div className={'header-main-intro'}>
+                <img className={'header-logo'} src={'images/hoa-thuan-duong-logo.png'} alt={'logo'}/>
+                <div>
+                    <h4 className={'header-h4'}>Nhà Thuốc - Phòng Chẩn Trị Đông Y</h4>
+                    <h1 className={'header-h1'}>Hoà Thuận Đường</h1>
+                </div>
+            </div>
+            <div className={'header-main-nav'}>
+                {menus.map( item => {
+                        return (
+                            <Link to={item.path} className={activeTab === item.path ? 'header-menu-item active' : 'header-menu-item'} key={item.path} >{item.name}</Link>
+                        )
+                    })
+                }
+            </div>
+        </div>
         </div>
     )
 }

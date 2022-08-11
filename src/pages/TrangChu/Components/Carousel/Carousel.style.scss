@@ -1,0 +1,22 @@
+#trangchu-bangkhen {
+    height: 30vh;
+    width: 85%;
+    margin: 3rem auto -2rem;
+    
+    .carousel {
+        height: 100%;
+        margin: auto 0;
+    }
+    #carousel-container {
+        height: 100% !important;
+        padding: 2rem;
+    }
+    .carousel-item {
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+    }
+    .carousel-img {
+        height: 23vh;
+    }
+}

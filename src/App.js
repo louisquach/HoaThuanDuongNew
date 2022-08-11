@@ -4,15 +4,19 @@ import { Routes, Route } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import Header from "./component/Header/Header";
 import './App.css'
+import TrangChu from "./pages/TrangChu/TrangChu";
+import Footer from "./component/Footer/Footer";
+import menus from "./component/MenuItems/menuItems";
+
 
 function App() {
   return (
     <AppContextProvider>
       <div className={'app-container'}>
-      <Header/>
+      <Header menus={menus}/>
       <Routes>
         <Route path="/_admin" element={<div>Login Page</div>} />
-        <Route path="/" element={<h1>Trang Chu</h1>} />
+        <Route path="/" element={<TrangChu />} />
 
         <Route path="/baiviet" element={<h1>Bai Viet</h1>} />
         <Route path="/baiviet/:baivietId" element={<h1>Bai Viet</h1>} />
@@ -42,6 +46,7 @@ function App() {
           <Route exact path="/baiviet/edit/:baivietId" element={<h1>Bai Viet</h1>} />
         </Route>
       </Routes>
+      <Footer menus={menus}/>
       </div>
     </AppContextProvider>
   );
