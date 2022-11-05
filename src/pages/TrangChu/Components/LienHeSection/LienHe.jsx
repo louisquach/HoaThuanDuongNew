@@ -68,13 +68,14 @@ const LienHeSection = () => {
             <div className={"lienhe__container"}>
                 <div className={'lienhe-map'}>
                 <iframe 
+                    id='map-iframe'
                     src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d979.4794217343866!2d107.22517548118459!3d10.89386017354663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sau!4v1660232823058!5m2!1sen!2sau" 
                     width="600" 
                     height="450" 
-                    style={{border: 'none', pointerEvents: 'none'}} 
-                    allowfullscreen="" 
+                    style={{border: 'none', pointerEvents: 'auto', boxShadow: '1px 2px 10px grey'}} 
+                    allowFullScreen="" 
                     loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade"
+                    referrerPolicy="no-referrer-when-downgrade"
                     title='Hoà Thuận Đường'
                  />
                 </div>
@@ -133,7 +134,7 @@ const LienHeSection = () => {
                         <label>Tin Nhắn</label>
                         <textarea
                         rows={5}
-                        placeholder="Nội dung yêu cầu"
+                        placeholder="Nội dung"
                         name="tinnhan"
                         className={'lienhe-input'}
                         onChange={handleFormChange}

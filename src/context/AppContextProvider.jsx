@@ -9,7 +9,7 @@ const AppContextProvider = ({ children }) => {
 
   React.useEffect(() => {
       auth.onAuthStateChanged( user => {
-          if (user.uid === process.env.REACT_APP_UID) {
+        if (user) {
             setLogged(true)
           } else {
             googleSignOut()
@@ -18,8 +18,6 @@ const AppContextProvider = ({ children }) => {
       })
   }, []);
 
-  console.log(auth.currentUser);
-  console.log(logged);
   return (
     <AppContext.Provider
       value={{

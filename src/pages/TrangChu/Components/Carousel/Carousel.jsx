@@ -16,7 +16,7 @@ const BangKhen = () => {
         <section id={'trangchu-bangkhen'}>
             <CarouselProvider
                 totalSlides={nodes.length}
-                visibleSlides={nodes.length-3}
+                visibleSlides={5}
                 infinite={true}
                 isPlaying={true}
                 playDirection={'backward'}

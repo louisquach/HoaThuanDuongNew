@@ -7,6 +7,17 @@ import './App.css'
 import TrangChu from "./pages/TrangChu/TrangChu";
 import Footer from "./component/Footer/Footer";
 import menus from "./component/MenuItems/menuItems";
+import LienHePage from "./pages/LienHe/LienHePage";
+import GioiThieuPage from "./pages/GioiThieu/GioiThieuPage";
+import SanPhamPage from "./pages/SanPham/SanPhamPage";
+import SanphamSingle from "./pages/SanPham/SanphamSingle/SanphamSingle";
+import BaiVietPage from "./pages/BaiViet/BaiVietPage";
+import BaivietSingle from "./pages/BaiViet/BaiVietSingle/BaivietSingle";
+import LoginPage from "./component/Login/LoginPage";
+import QuanlyPage from "./pages/Admin/Quanly/QuanlyPage.jsx";
+import ThemBaiViet from "./pages/Admin/Action/BaiViet/Editor/ThemBaiViet";
+import ThemSanPham from "./pages/Admin/Action/SanPham/Editor/ThemSanPham";
+import DonHang from "./pages/Admin/Action/DonHang/DonHang";
 
 
 function App() {
@@ -15,36 +26,46 @@ function App() {
       <div className={'app-container'}>
       <Header menus={menus}/>
       <Routes>
-        <Route path="/_admin" element={<div>Login Page</div>} />
+        <Route path="/_admin" element={<LoginPage />} />
         <Route path="/" element={<TrangChu />} />
 
-        <Route path="/baiviet" element={<h1>Bai Viet</h1>} />
-        <Route path="/baiviet/:baivietId" element={<h1>Bai Viet</h1>} />
+        <Route path="/tintuc-baiviet" element={<BaiVietPage />} />
+        <Route path="/tintuc-baiviet/:baivietId" element={<BaivietSingle />} />
 
-        <Route exact path="/sanpham" element={<h1>San Pham Page</h1>} />
-        <Route path="/sanpham/:sanphamId" element={<h1>San Pham</h1>} />
+        <Route exact path="/san-pham" element={<SanPhamPage />} />
+        <Route exact path="/san-pham/:sanphamId" element={<SanphamSingle />} />
         
-        <Route exact path="/lienhe" element={<h1>Lien He</h1>} />
-             
+        <Route exact path="/lien-he" element={<LienHePage />} />
+        <Route exact path="/gioi-thieu" element={<GioiThieuPage />} />
+        
+
+        {/*****************************  Admin Section *****************************/}
+
+        {/* <Route path="/quanly" element={<PrivateRoute />}> */}
+          <Route exact path="/quanly" element={<QuanlyPage />} />
+        {/* </Route> */}
+        <Route exact path="/quanly/donhang" element={<DonHang />} />
+
         {/* Them San Pham */}
-        <Route path="/sanpham/add" element={<PrivateRoute />}>
-          <Route exact path="/sanpham/add" element={<h1>San Pham Page</h1>} />
-        </Route>
+        {/* <Route path="/sanpham/them" element={<PrivateRoute />}> */}
+          <Route exact path="/sanpham/them" element={<ThemSanPham />} />
+        {/* </Route> */}
         
-        {/* Edit San Pham */}
-        <Route path="/sanpham/edit/:sanphamId" element={<PrivateRoute />}>
-          <Route exact path="/sanpham/edit/:sanphamId" element={<h1>San Pham Page</h1>} />
-        </Route>
         
         {/* Them Bai Viet */}
-        <Route path="/baiviet/add" element={<PrivateRoute />}>
-          <Route exact path="/baiviet/add" element={<h1>Bai Viet</h1>} />
-        </Route>
+        {/* <Route path="/baiviet/them" element={<PrivateRoute />}> */}
+          <Route exact path="/baiviet/them" element={<ThemBaiViet />} />
+        {/* </Route> */}
 
         {/* Edit Bai Viet */}
-        <Route path="/baiviet/edit/:baivietId" element={<PrivateRoute />}>
-          <Route exact path="/baiviet/edit/:baivietId" element={<h1>Bai Viet</h1>} />
-        </Route>
+        {/* <Route path="/baiviet/sua/:baivietId" element={<PrivateRoute />}> */}
+          <Route exact path="/baiviet/sua/:baivietId" element={<ThemBaiViet />} />
+        {/* </Route> */}
+
+        {/* Edit San Pham */}
+        {/* <Route path="/sanpham/sua/:sanphamId" element={<PrivateRoute />}> */}
+          <Route exact path="/sanpham/sua/:sanphamId" element={<ThemSanPham />} />
+        {/* </Route> */}
       </Routes>
       <Footer menus={menus}/>
       </div>

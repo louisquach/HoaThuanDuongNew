@@ -1,6 +1,6 @@
 #trangchu-bangkhen {
     height: 30vh;
-    width: 85%;
+    width: 90%;
     margin: 3rem auto -2rem;
     
     .carousel {
@@ -17,6 +17,36 @@
         align-items: center;
     }
     .carousel-img {
-        height: 23vh;
+        height: 25vh !important;
+        width: 18vw;
+    }
+}
+@media screen and (max-width: 1370px) {
+    #trangchu-bangkhen {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 900px) {
+    #trangchu-bangkhen {
+        margin-bottom: -5rem;
+        .carousel-img {
+            height: 20vh !important;
+        }
+    }
+}
+@media screen and (max-width: 678px) {
+    #trangchu-bangkhen {
+        margin-bottom: -10rem;
+        .carousel-img {
+            height: 15vh !important;
+        }
+    }
+}
+@media screen and (max-width: 500px) {
+    #trangchu-bangkhen {
+        height: 25vh;
+        .carousel-img {
+            height: 10vh !important;
+        }
     }
 }

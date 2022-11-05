@@ -10,6 +10,7 @@ import {
   getDocs,
   addDoc,
   deleteDoc,
+  startAt
 } from "firebase/firestore";
 import {
   GoogleAuthProvider,
@@ -17,6 +18,8 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  createUserWithEmailAndPassword,
+  confirmPasswordReset
 } from "firebase/auth";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
@@ -25,6 +28,7 @@ const firebaseConfig = {
   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
   projectId: process.env.REACT_APP_PROJECT_ID,
   storageBucket: process.env.REACT_APP_BUCKET,
+  databaseURL: process.env.REACT_APP_DB_URL,
   messagingSenderId: "557658336491",
   appId: process.env.REACT_APP_APP_ID,
   measurementId: "G-BJB44Z6RR6",
@@ -82,6 +86,7 @@ export const getDonHangByField = async (field, value) => {
   result.forEach( item => {list.push(item.data())})
   return list;
 }
+
 /** Sign in - Sign out Functions */
 export const googleSignIn = async () => {
   let user = undefined;
@@ -98,11 +103,22 @@ export const googleSignIn = async () => {
   return !!user;
 };
 
+// Create user with email and password
+export const register = (email, password) => {
+  createUserWithEmailAndPassword(auth, email, password)
+      .then((res) => {
+          return true
+        })
+      .catch(err => false)
+}
+
 export const signInWithCredential = async (email, password) => {
   let success = false;
 
   await signInWithEmailAndPassword(auth, email, password)
-    .then((res) => (success = true))
+    .then((res) => {
+      success = true;
+    })
     .catch((e) => {
       console.log(e.message);
     });
@@ -144,30 +160,40 @@ export const getAllData = async (tableName) => {
   return data;
 };
 
-export const getDataByPage = async (limitNumber) => {
-  const first = query(
-    collection(db, "lienhe"),
-    orderBy("ngaygui"),
-    limit(limitNumber)
-  );
-  const documentSnapshots = await getDocs(first);
+export const getDataByPage = async (dbRef, limitRows, orderCol, sort = 'asc', lastDocs = undefined) => {
+  const queries = [];
 
-  // Get the last visible document
-  const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length - 1];
-  console.log("last", lastVisible);
+  if (lastDocs && lastDocs !== undefined) {
+    let dataQuery = query(
+      collection(db, dbRef),
+      orderBy(orderCol, sort),
+      startAfter(lastDocs),
+      limit(limitRows)
+    );
+      queries.push(dataQuery);
+  } else {
+    let dataQuery = query(
+      collection(db, dbRef),
+      orderBy(orderCol, sort),
+      limit(limitRows)
+    );
+      queries.push(dataQuery);
+  }
 
-  // Construct a new query starting at this document,
-  // get the next 25 cities.
-  const next = query(
-    collection(db, "cities"),
-    orderBy("population"),
-    startAfter(lastVisible),
-    limit(25)
-  );
+  const result = {data: [], lastVisible: undefined};
+
+  if (queries.length) {
+    const res = await getDocs(queries[0]);
+    result.lastVisible = res.docs[res.docs.length-1];
+
+    res.forEach( item => {
+      let data = item.data();
+      let obj = {...data, id: item.id};
+      result.data.push(obj);
+    })
+  }
   
-  console.log(first, 'first');
-  console.log(documentSnapshots, 'ds');
-  console.log(next, 'next');
+  return result;
 };
 
 export const addData = async (tableName, data) => {

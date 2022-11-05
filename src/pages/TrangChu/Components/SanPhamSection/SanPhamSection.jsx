@@ -1,48 +1,39 @@
 import * as React from 'react'
+import { useState, useEffect } from 'react';
 import './SanPhamSection.style.scss';
-
+import {Link} from 'react-router-dom'
+import { getDataByPage } from '../../../../firebase/firebase';
 
 const SanPhamSection = () => {
-    const sanpham = [
-        {
-            title: 'Cao Ban Long', img: "/images/cao-ban-long.jpg", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit \nDoloribus dolorum rem eaque impedit tenetur ullam accusantium, consequuntur numquam quidem natus ut dolor official \nVoluptatum officiis distinctio ad quae velit ut."
-        },
-        {
-            title: 'Chi Phuc Thong', img: "/images/tanmogan.jpg", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit \nDoloribus dolorum rem eaque impedit tenetur ullam accusantium, consequuntur numquam quidem natus ut dolor official \nVoluptatum officiis distinctio ad quae velit ut."
-        },
-        {
-            title: 'Tieu Viem Xoang', img: "/images/tra-binh-vi.jpg", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit \nDoloribus dolorum rem eaque impedit tenetur ullam accusantium, consequuntur numquam quidem natus ut dolor official \nVoluptatum officiis distinctio ad quae velit ut."
-        },
-        {
-            title: 'Chi Phuc Thong', img: "/images/tanmogan.jpg", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit \nDoloribus dolorum rem eaque impedit tenetur ullam accusantium, consequuntur numquam quidem natus ut dolor official \nVoluptatum officiis distinctio ad quae velit ut."
-        },
-        {
-            title: 'Tieu Viem Xoang', img: "/images/tra-binh-vi.jpg", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit \nDoloribus dolorum rem eaque impedit tenetur ullam accusantium, consequuntur numquam quidem natus ut dolor official \nVoluptatum officiis distinctio ad quae velit ut."
-        },
-        {
-            title: 'Tieu Viem Xoang', img: "/images/tra-binh-vi.jpg", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit \nDoloribus dolorum rem eaque impedit tenetur ullam accusantium, consequuntur numquam quidem natus ut dolor official \nVoluptatum officiis distinctio ad quae velit ut."
-        },
-        {
-            title: 'Chi Phuc Thong', img: "/images/tanmogan.jpg", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit \nDoloribus dolorum rem eaque impedit tenetur ullam accusantium, consequuntur numquam quidem natus ut dolor official \nVoluptatum officiis distinctio ad quae velit ut."
-        },
-        {
-            title: 'Tieu Viem Xoang', img: "/images/tra-binh-vi.jpg", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit \nDoloribus dolorum rem eaque impedit tenetur ullam accusantium, consequuntur numquam quidem natus ut dolor official \nVoluptatum officiis distinctio ad quae velit ut."
-        },
-    ]
+    const [sanphams, setSanPham] = useState([]);
+
+    useEffect(() => {
+        const getSanpham = async () => {
+            let response = await getDataByPage("sanpham", 12, 'date');
+
+            if (response.data) {
+                setSanPham(response.data);
+            }
+        };
+        getSanpham();
+    }, []);
+
     return (
         <section id={'trangchu-sanpham'}> 
             <div className={'sanpham-container'}>
                 {
-                    sanpham.map( (item, i) => {
+                    sanphams.map( (item, i) => {
                         return (
-                            <div className={'sanpham-card'} key={`${i + item.title}`}>
-                                <img src={item.img} alt={item.title} className={'sanpham-card-img'} />
+                            <div className={'sanpham-card'} key={`${i + item.title}`} onClick={ () => window.location.href = `/san-pham/${item.id}`}>
+                                <img src={item.fileRef} alt={item.title} className={'sanpham-card-img'} />
                                 <h4>{item.title}</h4>
                             </div>
                         )
                     })
                 }
-                
+            </div>
+            <div id={'xemsp-d'}>
+                    <Link to={'/san-pham'} id={'xemsp-btn'}>Xem Tất Cả</Link>
             </div>
         </section>
     )

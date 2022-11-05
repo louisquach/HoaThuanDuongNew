@@ -1,4 +1,5 @@
 const path = require('path');
+const { styles } = require( '@ckeditor/ckeditor5-dev-utils' );
 
 module.exports = {
     mode: "development",
@@ -7,7 +8,7 @@ module.exports = {
     module: {
         rules: [
           {
-             test: /\.(js|jsx)$/,
+            test: /\.(js|jsx)$/,
              exclude: /node_modules/,
              use: ['babel-loader']
           },

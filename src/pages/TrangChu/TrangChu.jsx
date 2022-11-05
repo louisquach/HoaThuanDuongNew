@@ -9,39 +9,22 @@ import TinNoiBatSection from './Components/TinNoiBatSection/TinNoiBat';
 import './TrangChu.style.scss'
 import BangKhen from './Components/Carousel/Carousel';
 import LienHeSection from './Components/LienHeSection/LienHe';
+import Loader from '../../component/Loader/Loader';
 
 const TrangChu = () => {
-    const [bp, setP] = useState(0);
+    const [loading, setLoading] = useState(true);
 
-    // get baiviet from db
-    const baiviet = [
-        {
-            title: 'Cao Ban Long', img: "/images/cao-ban-long.jpg", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit \nDoloribus dolorum rem eaque impedit tenetur ullam accusantium, consequuntur numquam quidem natus ut dolor official \nVoluptatum officiis distinctio ad quae velit ut."
-        },
-        {
-            title: 'Chi Phuc Thong', img: "/images/tanmogan.jpg", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit \nDoloribus dolorum rem eaque impedit tenetur ullam accusantium, consequuntur numquam quidem natus ut dolor official \nVoluptatum officiis distinctio ad quae velit ut."
-        },
-        {
-            title: 'Tieu Viem Xoang', img: "/images/tra-binh-vi.jpg", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit \nDoloribus dolorum rem eaque impedit tenetur ullam accusantium, consequuntur numquam quidem natus ut dolor official \nVoluptatum officiis distinctio ad quae velit ut."
-        },
-        {
-            title: 'Chi Phuc Thong', img: "/images/tanmogan.jpg", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit \nDoloribus dolorum rem eaque impedit tenetur ullam accusantium, consequuntur numquam quidem natus ut dolor official \nVoluptatum officiis distinctio ad quae velit ut."
-        },
-        {
-            title: 'Tieu Viem Xoang', img: "/images/tra-binh-vi.jpg", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit \nDoloribus dolorum rem eaque impedit tenetur ullam accusantium, consequuntur numquam quidem natus ut dolor official \nVoluptatum officiis distinctio ad quae velit ut."
-        },
-    ];
+    useEffect( () => {
+        setTimeout(() => {
+            setLoading(false)
+        }, 500);
 
-    setInterval( () => {
-        let count = bp;
-        if (count >= baiviet.length - 1) {
-            count = 0
-            setP(count);
-        } else if (count < baiviet.length - 1) {
-            count += 1;
-            setP(count);
-        }
-    }, 6000);
+        return () => clearTimeout(() => setLoading(false));
+    },[])
+
+    if (loading) {
+        return <Loader visible={loading}/>
+    }
 
     const goTop = () => {
         document.body.scrollTop = 0;
@@ -56,12 +39,11 @@ const TrangChu = () => {
                      </div>
          
              : ''}
-
             <Separator title={'Giới Thiệu'}/>
             <GioiThieuSection />
             
-            <Separator title={'Tin Tức - Hoạt Động'} />
-            <TinNoiBatSection baiviet={baiviet} index={bp} />
+            <Separator title={'Tin Tức - Bài Viết'} />
+            <TinNoiBatSection />
 
             <Separator title={'Sản Phẩm Nổi Bật'}/>
             <SanPhamSection />

@@ -22,7 +22,7 @@ const Footer = ({menus}) => {
               <div style={{ display: "flex", width: '100%' }}>
                 <span><FontAwesomeIcon icon={faFacebook}/> hoathuanduong</span>
                 <span style={{width: '5%', textAlign: 'center'}}> - </span>
-                <span>zalo: 093 727 1186</span>
+                <span>Zalo: 093 727 1186</span>
               </div>
             </div>
           </div>
