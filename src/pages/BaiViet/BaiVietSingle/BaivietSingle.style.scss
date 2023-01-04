@@ -1,0 +1,71 @@
+#baiviet-single-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem;
+    h1 {
+        color: teal;
+        margin-bottom: 5px;
+    }
+    span {
+        color: grey;
+    }
+    .baiviet-single-head, .baiviet-single-content {
+        width: 90%;
+        padding: 0;
+    }
+    .baiviet-single-content {
+        width: 100%;
+        margin: 2rem 0;
+        min-height: 40rem;
+        img {
+            max-width: 100%;
+        }
+    }
+
+    .baiviet-khac {
+        h3 {
+            color: white;
+            background-color: lightseagreen;
+            padding: 1rem;
+            max-width: 100%;
+        }
+    }
+    .baiviet-khac-container {
+        display: flex;
+        padding: 2rem 0;
+        margin-top: 2rem;
+        border-top: 1px solid lightgray;
+        height: 12rem;
+        overflow: hidden;
+
+        .baiviet-khac-img {
+            width: 30%;
+
+            .baiviet-img {
+                height: 100%;
+            }
+        }
+        .baiviet-khac-content {
+            width: 60%;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+
+            .baiviet-khac-title {
+                color: teal;
+                background-color: transparent !important;
+                padding: 0 !important;
+            }
+            span {
+                color: grey;
+            }
+            .baiviet-content {
+                margin-top: 1rem;
+                font-size: 1rem;
+                color: rgb(34, 32, 32);
+            }
+        }
+    }
+}

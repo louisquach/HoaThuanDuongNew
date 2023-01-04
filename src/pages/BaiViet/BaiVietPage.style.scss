@@ -1,0 +1,101 @@
+#baiviet-page-container {
+    max-width: 1100px;
+    padding: 3rem;
+    margin: 0 auto;
+    min-height: 50vh;
+
+    .baiviet-title {
+        width: 100%;
+        margin-bottom: 2rem;
+        h1 {
+            color: teal;
+            margin-bottom: 5px;
+        }
+        
+        span {
+            color: grey;
+        }
+    }
+
+    .baiviet-moinhat-container {
+        display: flex;
+        width: 100%;
+        min-height: 35em;
+        justify-content: space-between;
+        overflow: hidden;
+        flex-direction: column;
+
+        .baiviet-moinhat-img, .baiviet-moinhat-content {
+            width: 100%;
+        }
+        .baiviet-moinhat-content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding: 0;
+            position: relative;
+
+            .baiviet-content {
+                margin-top: 2rem;
+                font-size: 1.2rem;
+            }
+
+            #xem-bai-viet-link {
+                position: absolute;
+                bottom: 1rem;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 5px 1.5rem;
+                width: 30%;
+                border-radius: 5px;
+                text-align: center;
+                background-color: orange;
+                color: white;
+            }
+        }
+    }
+
+    .baiviet-khac-container {
+        display: flex;
+        padding: 2rem 0;
+        margin-top: 2rem;
+        border-top: 1px solid lightgray;
+        height: 15rem;
+        overflow: hidden;
+
+        .baiviet-khac-img {
+            width: 30%;
+            overflow: hidden;
+            .baiviet-img {
+                height: 100%;
+            }
+        }
+        .baiviet-khac-content {
+            width: 60%;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            h1 {
+                color: teal;
+                margin: 0;
+            }
+            .ngaytao-span {
+                color: grey;
+                margin-top: .5rem;
+                font-weight: 200;
+            }
+            .baiviet-content {
+                margin-top: 1rem;
+                font-size: 1.1rem;
+                color: rgb(34, 32, 32);
+            }
+        }
+    }
+}
+@media screen and (max-width: 680px) {
+    .baiviet-content {
+        font-size: 1.5rem !important;
+    }
+}

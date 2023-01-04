@@ -1,0 +1,84 @@
+#quanly-content-container {
+    width: 100%;
+    padding: 2rem;
+    min-height: 60vh;
+
+    .quanly-content-main {
+        width: 1100px;
+        margin: 0 auto;
+    }
+
+    .quanly-tab {
+        display: flex;
+        margin: 1rem 0 3rem;
+        .quanly-tab-btn {
+            width: 10rem;
+            padding: .5rem;
+            border: none;
+            outline: none;
+        }
+        .quanly-tab-btn.them {
+            margin-left: auto;
+            margin-right: 0;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+            
+            
+        }
+    }
+    .content-list {
+        width: 100%;
+        
+        .content-item {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 1rem;
+            border-bottom: 1px solid rgba(173, 216, 230, 0.747);
+            margin-bottom: 1rem;
+
+            .item-title {
+                width: 70%;
+                display: flex;
+                align-items: center;
+                .item-img {
+                    height: 4rem;
+                    margin-right: 1rem;
+                }
+                h3 {
+                    margin: 0;
+                }
+            }
+            .item-action {
+                width: 20%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .item-action-btn {
+                height: 2rem;
+                width: 40%;
+                border: 0;
+                outline: none;
+                color: white;
+                padding: 5px;
+                border-radius: 3px;
+                text-align: center;
+                cursor: pointer;
+                &.edit {
+                    background-color: teal;
+                }
+                &.del {
+                    background-color: red;
+                }
+            }
+            .action-btn-separator {
+                width: 1px;
+                margin: 0 5px;
+                height: 100%;
+                background-color: lightgrey;
+            }
+        }
+    }
+}

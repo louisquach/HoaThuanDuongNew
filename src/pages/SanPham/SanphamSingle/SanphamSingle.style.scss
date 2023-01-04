@@ -1,0 +1,99 @@
+#sanpham-single-container {
+    max-width: 1100px;
+    height: 100%;
+    margin: 0 auto;
+}
+.sanpham-single-title {
+    text-align: center;
+    margin: 2rem 0;
+    color: #e49e48;
+
+    .sanpham-title {
+        font-size: 2.3em !important;
+        padding: .5rem;
+        border-bottom: 1px solid lightgray;
+        text-transform: uppercase;
+    }
+}
+#sanpham-single-content {
+    display:  flex;
+    padding: 1rem;
+    justify-content: space-between;
+}
+.hinh-san-pham {
+    width: 40rem;
+}
+.sp-content-main {
+    font-size: 1.2rem;
+    width: 45%;
+}
+.sp-mota {
+    background-color: lightseagreen;
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+.gia-ban {
+    color: white;
+    font-size: 1.1rem;
+    // background-color: #FF4A4A;
+    background-color: #e49e48;
+    padding: 1rem;
+    width: 35%;
+}
+#sanpham-tuongtu-container {
+    margin: 4rem 0;
+    padding: 0 1rem;
+    width: 100%;
+
+    .sp-tuongtu {
+        //text-align: center;
+        color: white;
+        padding: 1rem;
+        background-color: lightseagreen;
+    }
+    #sp-tuongtu-sp {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 47%);
+        justify-content: space-between;
+        .sp-img-container {
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+        }
+        .sp-tuongtu-title {
+            //color: #e49e48;
+            width: 70%;
+            padding-left: 1rem;
+            h5 {
+                width: 100%;
+            }
+        }
+        .sp-img-ctn {
+            width: 20%;
+        }
+        .sp-tt {
+            height: 3rem;
+        }
+    }
+}
+@media screen and (max-width: 1060px) {
+    #sanpham-single-content {
+        flex-direction: column;
+        align-items: center;
+
+        .sp-content-main {
+            width: 100%;
+            margin-top: 3rem;
+        }
+    }
+}
+@media screen and (max-width: 490px) {
+    .sp-tuongtu-title {
+        h5 {
+           text-align: center;
+        }
+    }
+}
