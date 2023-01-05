@@ -31,7 +31,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "wp-build": "webpack --mode development",
+    "wp-build": "webpack --mode production",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -58,6 +58,7 @@
     "mini-css-extract-plugin": "^2.4.6",
     "node-sass": "^7.0.1",
     "sass-loader": "^12.4.0",
-    "style-loader": "^3.3.1"
+    "style-loader": "^3.3.1",
+    "webpack-cli": "^5.0.1"
   }
 }
