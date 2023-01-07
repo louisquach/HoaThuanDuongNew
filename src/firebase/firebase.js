@@ -10,7 +10,6 @@ import {
   getDocs,
   addDoc,
   deleteDoc,
-  startAt
 } from "firebase/firestore";
 import {
   GoogleAuthProvider,
@@ -19,7 +18,6 @@ import {
   signInWithPopup,
   signOut,
   createUserWithEmailAndPassword,
-  confirmPasswordReset
 } from "firebase/auth";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 

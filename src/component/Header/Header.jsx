@@ -40,10 +40,11 @@ const Header = ({menus}) => {
                 
                 <div className={'header-social-box'}>
                 <FontAwesomeIcon 
+                    className='header-globe-icon'
                     icon={faGlobe} 
                     style={{color: 'teal', fontSize: '1.3em', marginRight: '.5rem'}}
                 />
-                    <span style={{marginRight: '1rem'}}>Mạng xã hội</span>
+                    <span className={'header-globe-icon'} style={{marginRight: '1rem'}}>Mạng xã hội</span>
                     <a href='https://facebook.com'>
                         <FontAwesomeIcon 
                         icon={faFacebookF}

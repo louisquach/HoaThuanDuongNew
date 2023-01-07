@@ -153,3 +153,11 @@
         padding: .2rem .5rem !important;
     }
 }
+@media screen and (max-width: 350px) {
+    .header .header-globe-icon {
+        display: none;
+    }
+    .header .header-icon {
+        margin: 0 2rem;
+    }
+}

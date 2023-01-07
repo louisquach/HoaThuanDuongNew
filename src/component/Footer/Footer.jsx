@@ -16,7 +16,7 @@ const Footer = ({menus}) => {
               Hoà Thuận Đường
               </h1>
             <div className={'footer__info'} style={{fontWeight: '500'}}>
-              <span>Địa Chỉ: 28 K2 Ấp Tân Phong, Xã Xuân Tân, Long Khánh, Đồng Nai</span>
+              <span>Địa Chỉ: 70 K2 Ấp Tân Phong, Xã Xuân Tân, Long Khánh, Đồng Nai</span>
               <span>Điện Thoại: 093 727 1186</span>
               <span>Email: dongy.hoathuanduong@gmail.com</span>
               <div style={{ display: "flex", width: '100%' }}>

@@ -26,13 +26,13 @@ function App() {
       <div className={'app-container'}>
       <Header menus={menus}/>
       <Routes>
-        <Route path="/_admin" element={<LoginPage />} />
+        <Route exact path="/_admin" element={<LoginPage />} />
         <Route path="/" element={<TrangChu />} />
 
         <Route path="/tintuc-baiviet" element={<BaiVietPage />} />
-        <Route path="/tintuc-baiviet/:baivietId" element={<BaivietSingle />} />
+        <Route exact path="/tintuc-baiviet/:baivietId" element={<BaivietSingle />} />
 
-        <Route exact path="/san-pham" element={<SanPhamPage />} />
+        <Route path="/san-pham" element={<SanPhamPage />} />
         <Route exact path="/san-pham/:sanphamId" element={<SanphamSingle />} />
         
         <Route exact path="/lien-he" element={<LienHePage />} />
@@ -41,31 +41,34 @@ function App() {
 
         {/*****************************  Admin Section *****************************/}
 
-        {/* <Route path="/quanly" element={<PrivateRoute />}> */}
+        <Route exact path="/quanly" element={<PrivateRoute />}>
           <Route exact path="/quanly" element={<QuanlyPage />} />
-        {/* </Route> */}
-        <Route exact path="/quanly/donhang" element={<DonHang />} />
+        </Route> 
+
+        <Route path="/quanly/donhang" element={<PrivateRoute />}>
+          <Route exact path="/quanly/donhang" element={<DonHang />} />
+        </Route>
 
         {/* Them San Pham */}
-        {/* <Route path="/sanpham/them" element={<PrivateRoute />}> */}
+        <Route path="/sanpham/them" element={<PrivateRoute />}>
           <Route exact path="/sanpham/them" element={<ThemSanPham />} />
-        {/* </Route> */}
+        </Route>
         
         
         {/* Them Bai Viet */}
-        {/* <Route path="/baiviet/them" element={<PrivateRoute />}> */}
+        <Route exact path="/baiviet/them" element={<PrivateRoute />}>
           <Route exact path="/baiviet/them" element={<ThemBaiViet />} />
-        {/* </Route> */}
+        </Route>
 
         {/* Edit Bai Viet */}
-        {/* <Route path="/baiviet/sua/:baivietId" element={<PrivateRoute />}> */}
+        <Route exact path="/baiviet/sua/:baivietId" element={<PrivateRoute />}>
           <Route exact path="/baiviet/sua/:baivietId" element={<ThemBaiViet />} />
-        {/* </Route> */}
+        </Route>
 
         {/* Edit San Pham */}
-        {/* <Route path="/sanpham/sua/:sanphamId" element={<PrivateRoute />}> */}
+        <Route exact path="/sanpham/sua/:sanphamId" element={<PrivateRoute />}>
           <Route exact path="/sanpham/sua/:sanphamId" element={<ThemSanPham />} />
-        {/* </Route> */}
+        </Route>
       </Routes>
       <Footer menus={menus}/>
       </div>
