@@ -63,4 +63,14 @@
             }
         }
     }
+    @media screen and (max-width: 1000px) {
+        .login-form .login-form-group {
+            width: 80%;
+        }
+    }
+    @media screen and (max-width: 690px) {
+        .login-form {
+            width: 80%;
+        }
+    }
 }

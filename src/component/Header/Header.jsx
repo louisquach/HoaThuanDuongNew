@@ -51,6 +51,7 @@ const Header = ({menus}) => {
                         className={'header-icon'}
                         />
                     </a>
+                    <span className='vertical-divider'></span>
                     <a href="https://zalo.com.vn">
                         <img src="/images/zalo.png" alt="social network Zalo" className='zalo'/>
                     </a>

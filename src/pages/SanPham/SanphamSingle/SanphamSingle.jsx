@@ -59,9 +59,8 @@ const SanphamSingle = () => {
                 <img src={sanpham.fileRef} alt={sanpham.title} className={'hinh-san-pham'}/>
             </div>
             <div className={'sp-content-main'}>
-                <h5 className={'sp-mota'}>Mô Tả Sản Phẩm</h5>
+                <h3 className={'sp-mota'}>Mô Tả Sản Phẩm</h3>
                 <div dangerouslySetInnerHTML={{__html: sanpham.content}}></div>
-                <h5 className={'gia-ban'}>Giá Bán: 100,000đ</h5>
             </div>
         </div>
         <div id={'sanpham-tuongtu-container'}>

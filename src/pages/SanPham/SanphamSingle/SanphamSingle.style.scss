@@ -9,7 +9,7 @@
     color: #e49e48;
 
     .sanpham-title {
-        font-size: 2.3em !important;
+        font-size: 2em !important;
         padding: .5rem;
         border-bottom: 1px solid lightgray;
         text-transform: uppercase;
@@ -26,6 +26,11 @@
 .sp-content-main {
     font-size: 1.2rem;
     width: 45%;
+}
+@media screen and (max-width: 680px) {
+    .sp-content-main {
+        font-size: 1.5rem;
+    }
 }
 .sp-mota {
     background-color: lightseagreen;
@@ -50,7 +55,7 @@
     .sp-tuongtu {
         //text-align: center;
         color: white;
-        padding: 1rem;
+        padding: .5rem 1rem;
         background-color: lightseagreen;
     }
     #sp-tuongtu-sp {
@@ -65,17 +70,19 @@
         }
         .sp-tuongtu-title {
             //color: #e49e48;
-            width: 70%;
+            //width: 70%;
             padding-left: 1rem;
             h5 {
                 width: 100%;
+                font-weight: 600;
             }
         }
         .sp-img-ctn {
-            width: 20%;
+            height: 100%;
         }
         .sp-tt {
-            height: 3rem;
+            height: 100%;
+            width: 5rem;
         }
     }
 }

@@ -39,13 +39,22 @@
                 margin-top: 2rem;
                 font-size: 1.2rem;
             }
-
-            #xem-bai-viet-link {
+            .link-container {
                 position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                padding: 3rem 1.5rem;
+                border-radius: 5px;
+                text-align: center;
+                background-color: rgba(255, 255, 255, 0.877);
+                color: white;
+            }
+            #xem-bai-viet-link {
                 bottom: 1rem;
                 left: 50%;
                 transform: translateX(-50%);
-                padding: 5px 1.5rem;
+                padding: .8rem 2.5rem;
                 width: 30%;
                 border-radius: 5px;
                 text-align: center;
@@ -57,17 +66,19 @@
 
     .baiviet-khac-container {
         display: flex;
-        padding: 2rem 0;
+        padding: 1rem 0;
         margin-top: 2rem;
         border-top: 1px solid lightgray;
-        height: 15rem;
+        max-height: 6rem;
         overflow: hidden;
 
         .baiviet-khac-img {
-            width: 30%;
+            width: 5rem;
+            margin-right: 2rem;
             overflow: hidden;
             .baiviet-img {
                 height: 100%;
+                aspect-ratio: 4/3;
             }
         }
         .baiviet-khac-content {
@@ -80,6 +91,7 @@
             h1 {
                 color: teal;
                 margin: 0;
+                font-size: 1.2rem;
             }
             .ngaytao-span {
                 color: grey;
@@ -96,6 +108,6 @@
 }
 @media screen and (max-width: 680px) {
     .baiviet-content {
-        font-size: 1.5rem !important;
+        font-size: 1.7rem !important;
     }
 }

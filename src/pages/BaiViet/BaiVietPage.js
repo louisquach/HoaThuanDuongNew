@@ -56,7 +56,7 @@ const BaiVietPage = () => {
                             : ''
                         }
                         <div className={'baiviet-khac-content'}>
-                            <h1>{baiviet.title}Hehehe</h1>
+                            <h1>{baiviet.title}</h1>
                             <h5 className='ngaytao-span'>{baiviet.ngaytao}</h5>
                             {/* <div className={'baiviet-content'} dangerouslySetInnerHTML={{__html: baiviet.content}}></div> */}
                         </div>
@@ -82,7 +82,9 @@ const BaiVietPage = () => {
                         </div>
                         <div className={'baiviet-moinhat-content'}>
                             <div className={'baiviet-content'} dangerouslySetInnerHTML={{__html: baimoi.content}}></div>
-                            <Link to={`/tintuc-baiviet/${baimoi.id}`} id='xem-bai-viet-link'>Xem bài viết</Link>
+                            <div className='link-container'>
+                                <Link to={`/tintuc-baiviet/${baimoi.id}`} id='xem-bai-viet-link'>Xem bài viết</Link>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -35,13 +35,13 @@ function App() {
         <Route path="/san-pham" element={<SanPhamPage />} />
         <Route exact path="/san-pham/:sanphamId" element={<SanphamSingle />} />
         
-        <Route exact path="/lien-he" element={<LienHePage />} />
+        <Route path="/lien-he" element={<LienHePage />} />
         <Route exact path="/gioi-thieu" element={<GioiThieuPage />} />
         
 
         {/*****************************  Admin Section *****************************/}
 
-        <Route exact path="/quanly" element={<PrivateRoute />}>
+        <Route path="/quanly" element={<PrivateRoute />}>
           <Route exact path="/quanly" element={<QuanlyPage />} />
         </Route> 
 

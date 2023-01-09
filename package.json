@@ -31,7 +31,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "wp-build": "webpack --mode production",
+    "wp-build": "NODE_ENV=production webpack --config ./webpack.config.prod.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
