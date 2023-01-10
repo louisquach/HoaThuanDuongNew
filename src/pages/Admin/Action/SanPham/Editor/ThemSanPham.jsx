@@ -13,6 +13,7 @@ import {
   } from "../../../../../firebase/firebase";
 import Swal from "sweetalert2";
 import Loader from '../../../../../component/Loader/Loader'
+import { Checkbox } from 'semantic-ui-react'
 
 const ThemSanPham = () => {
       const [data, setData] = useState({
@@ -21,7 +22,8 @@ const ThemSanPham = () => {
         noibat: true,
         ngaytao: "",
         filename: "",
-        fileRef: ""
+        fileRef: "",
+        isThuoc: true
       });
     
       const [loading, setLoading] = useState(false);
@@ -40,7 +42,8 @@ const ThemSanPham = () => {
               title: doc.title,
               content: doc.content,
               filename: doc.filename ? doc.filename : "",
-              fileRef: doc.fileRef ? doc.fileRef : ''
+              fileRef: doc.fileRef ? doc.fileRef : '',
+              isThuoc: doc.isThuoc !== undefined ? doc.isThuoc : true 
             });
           };
           res();
@@ -89,6 +92,13 @@ const ThemSanPham = () => {
         });
       };
     
+      const handleCheckboxChange = (e, target) => {
+        setData({
+          ...data,
+          isThuoc: target.checked
+        })
+      }
+
       const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -134,18 +144,22 @@ const ThemSanPham = () => {
     return (
         <div id='them-bai-viet-container'>
             <div className='them-bai-viet-main'>
-                <h1>Thêm Sản Phẩm</h1>
+                <h1>{isEdit ? "Cập Nhật Sản Phẩm" : "Thêm Sản Phẩm"}</h1>
                 <form id='them-bai-viet-form'>
                     <div className='content-editor-container'>
                         <label htmlFor='sanpham-title' className={'form-label'}>Tên Sản Phẩm:</label>
                         <input name='title' id='title' value={data.title} onChange={handleInputChange}/>
                     </div>
                     <div className='content-editor-container'>
+                      <Checkbox label="Thực phẩm chức năng?" checked={data.isThuoc} onChange={handleCheckboxChange} style={{fontWeight: 'bold', fontSize: '1.1rem'}}/>
+                    </div>
+
+                    <div className='content-editor-container'>
                         <label htmlFor='sanpham-img' className={'form-label'}>Hình Ảnh Sản Phẩm:</label>
                         <input type='file' name='img' id='file' onChange={handleUploadFile}/>
                         { data.filename !== "" &&
                             (data.fileRef !== "" && (
-                                <div style={{ display: "flex", alignItems: "center" }}>
+                                <div style={{ display: "flex", alignItems: "center", marginTop: '5px' }}>
                                 <img src={data.fileRef} height={50} alt={`${data.filename}`} />
                                 <span
                                     style={{

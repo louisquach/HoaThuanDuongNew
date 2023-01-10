@@ -8,7 +8,7 @@ import './SanPhamPage.style.scss';
 
 const SANPHAM_PATH = 'sanpham';
 
-const SanPhamPage = () => {
+const SanPhamPage = ({isThuoc = true}) => {
     const [sanphams, setSanPham] = useState([]);
     const [isLoading, setLoading] = useState(true);
 
@@ -16,6 +16,11 @@ const SanPhamPage = () => {
         const res = async () => {
             let data = await getAllData(SANPHAM_PATH);
             if (data.length) {
+                if (isThuoc) {
+                    data.filter( item => item.isThuoc);
+                } else {
+                    data.filter( item => !item.isThuoc);
+                }
                 setSanPham(data);
             }
         };
@@ -25,7 +30,7 @@ const SanPhamPage = () => {
         }, 500);
 
         return () => clearTimeout(() => setLoading(false));
-    }, []);
+    }, [isThuoc]);
 
     if (isLoading) {
         return <section id='sanpham-page'>

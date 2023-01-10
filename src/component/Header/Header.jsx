@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneVolume, faGlobe, faPowerOff } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Dropdown } from 'semantic-ui-react';
 import './Header.style.scss';
 import { AppContext } from '../../context/AppContextProvider';
 import { googleSignOut } from '../../firebase/firebase';
@@ -68,8 +69,33 @@ const Header = ({menus}) => {
             </div>
             <div className={'header-main-nav'}>
                 {menus.map( item => {
+                        if (item.isDropdown) {
+                            return (
+                                <Dropdown 
+                                    key={item.name}
+                                    text={item.name} 
+                                    pointing 
+                                    className={activeTab === item.path ? 'header-menu-item active link item' : 'header-menu-item link item'}
+                                    >
+                                 <Dropdown.Menu className={'header-dropdown-menu'}>
+                                    <Dropdown.Item className={'header-dropdown-menu-item'}>
+                                        <Link to={`${item.path}/thuoc`} >
+                                            Thuốc Lưu Hành Nội Bộ
+                                        </Link>
+                                    </Dropdown.Item>
+                                    <Dropdown.Item className={'header-dropdown-menu-item'}>
+                                        <Link to={`${item.path}/thuc-pham-chuc-nang`} >
+                                            Thực Phẩm Chức Năng
+                                        </Link>
+                                    </Dropdown.Item>
+                                 </Dropdown.Menu>
+                               </Dropdown>
+                            )
+                        }
                         return (
-                            <Link to={item.path} className={activeTab === item.path ? 'header-menu-item active' : 'header-menu-item'} key={item.path} >{item.name}</Link>
+                            <Link to={item.path} className={activeTab === item.path ? 'header-menu-item active' : 'header-menu-item'} key={item.path} >
+                                {item.name}
+                            </Link>
                         )
                     })
                 }

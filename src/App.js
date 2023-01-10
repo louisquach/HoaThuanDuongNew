@@ -32,7 +32,8 @@ function App() {
         <Route path="/tintuc-baiviet" element={<BaiVietPage />} />
         <Route exact path="/tintuc-baiviet/:baivietId" element={<BaivietSingle />} />
 
-        <Route path="/san-pham" element={<SanPhamPage />} />
+        <Route exact path="/san-pham/thuoc" element={<SanPhamPage />} />
+        <Route exact path="/san-pham/thuc-pham-chuc-nang" element={<SanPhamPage isThuoc={false}/>} />
         <Route exact path="/san-pham/:sanphamId" element={<SanphamSingle />} />
         
         <Route path="/lien-he" element={<LienHePage />} />
@@ -56,17 +57,17 @@ function App() {
         
         
         {/* Them Bai Viet */}
-        <Route exact path="/baiviet/them" element={<PrivateRoute />}>
+        <Route path="/baiviet/them" element={<PrivateRoute />}>
           <Route exact path="/baiviet/them" element={<ThemBaiViet />} />
         </Route>
 
         {/* Edit Bai Viet */}
-        <Route exact path="/baiviet/sua/:baivietId" element={<PrivateRoute />}>
+        <Route path="/baiviet/sua/:baivietId" element={<PrivateRoute />}>
           <Route exact path="/baiviet/sua/:baivietId" element={<ThemBaiViet />} />
         </Route>
 
         {/* Edit San Pham */}
-        <Route exact path="/sanpham/sua/:sanphamId" element={<PrivateRoute />}>
+        <Route path="/sanpham/sua/:sanphamId" element={<PrivateRoute />}>
           <Route exact path="/sanpham/sua/:sanphamId" element={<ThemSanPham />} />
         </Route>
       </Routes>

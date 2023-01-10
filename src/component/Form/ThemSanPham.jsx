@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Form } from "semantic-ui-react";
+import { Checkbox, Form } from "semantic-ui-react";
+import Loader from "../Loader/Loader";
 import {
   addData,
   getFile,
@@ -23,6 +24,7 @@ const SanPhamForm = (props) => {
     filename: "",
     fileRef: "",
     thanhphan: "",
+    isThuoc: true
   });
   const [loading, setLoading] = useState(false);
   const [fileUrl, setFileUrl] = useState("");
@@ -56,6 +58,11 @@ const SanPhamForm = (props) => {
     }
   }, [data.filename]);
 
+  if (loading) {
+    return <section id='sanpham-page'>
+        <Loader />
+    </section>
+}
   const handleUploadFile = async (e) => {
     setLoading(true);
     try {
@@ -99,17 +106,20 @@ const SanPhamForm = (props) => {
       Swal.fire({
         position: "top-end",
         icon: "success",
-        title: "Gửi thành công!",
+        title: "Lưu thành công!",
         showConfirmButton: false,
         timer: 2000,
       });
       setTimeout(() => {
-        window.location.href = "/sanpham";
+        window.location.href = "/sanpham/thuc-pham-chuc-nang";
       }, 2000);
     }
     setLoading(false);
   };
 
+  const handleCheckboxChange = (e, data) => {
+    console.log(data, "check");
+  }
   return (
     <div className="san-pham-noi-bat" style={{ margin: "15rem 0 0" }}>
       <Form id={"themsanpham_form"}>
@@ -189,6 +199,9 @@ const SanPhamForm = (props) => {
             rows={10}
             onChange={handleInputChange}
           />
+        </Form.Field>
+        <Form.Field>
+            <Checkbox label="Thực phẩm chức năng" checked={data.isThuoc} onChange={handleCheckboxChange} />
         </Form.Field>
         <Form.Group style={{ display: "flex", justifyContent: "flex-end" }}>
           <Link to={"/sanpham"}>
