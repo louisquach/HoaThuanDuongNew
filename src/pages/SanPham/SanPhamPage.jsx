@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
 import Loader from '../../component/Loader/Loader';
 import Separator from '../../component/Separator/Separator';
 import { getAllData } from '../../firebase/firebase';
@@ -8,20 +8,35 @@ import './SanPhamPage.style.scss';
 
 const SANPHAM_PATH = 'sanpham';
 
-const SanPhamPage = ({isThuoc = true}) => {
+const SanPhamPage = () => {
     const [sanphams, setSanPham] = useState([]);
     const [isLoading, setLoading] = useState(true);
+    
+    const location = useLocation();
+    const navigate = useNavigate();
+    const path = location.pathname;
 
     useEffect(() => {
         const res = async () => {
-            let data = await getAllData(SANPHAM_PATH);
+            const data = await getAllData(SANPHAM_PATH);
+            const thuoc = [];
+            const tpcn = [];
             if (data.length) {
-                if (isThuoc) {
-                    data.filter( item => item.isThuoc);
-                } else {
-                    data.filter( item => !item.isThuoc);
+                data.map( item => {
+                    if (item.isThuoc !== undefined && item.isThuoc) {
+                        thuoc.push(item)
+                    } else {
+                        tpcn.push(item)
+                    }
+                });
+                if (path === '/san-pham') {
+                    setSanPham(data);
                 }
-                setSanPham(data);
+                else if (path === '/san-pham/thuoc') {
+                    setSanPham(thuoc);
+                } else if (path === '/san-pham/thuc-pham-chuc-nang') {
+                    setSanPham(tpcn);
+                }
             }
         };
         res();
@@ -30,7 +45,7 @@ const SanPhamPage = ({isThuoc = true}) => {
         }, 500);
 
         return () => clearTimeout(() => setLoading(false));
-    }, [isThuoc]);
+    }, [path]);
 
     if (isLoading) {
         return <section id='sanpham-page'>
@@ -40,6 +55,16 @@ const SanPhamPage = ({isThuoc = true}) => {
 
     return (
         <section id={'sanpham-page'}> 
+        <div id='sanpham-container-menu'>
+            <div className='sanpham-menu-container'>
+                <div className='sanpham-menu-item' onClick={ () => navigate('/san-pham/thuoc')}>
+                    Thuốc Lưu Hành Nội Bộ
+                </div>
+                <div  className='sanpham-menu-item' onClick={ () => navigate('/san-pham/thuc-pham-chuc-nang')}>
+                    Thực Phẩm Chức Năng
+                </div>
+            </div>
+        </div>
         <Separator title={'Sản Phẩm'}/>
             <div className={'sanpham-container'}>
                 {

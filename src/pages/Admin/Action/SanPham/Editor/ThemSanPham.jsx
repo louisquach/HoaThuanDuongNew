@@ -95,7 +95,7 @@ const ThemSanPham = () => {
       const handleCheckboxChange = (e, target) => {
         setData({
           ...data,
-          isThuoc: target.checked
+          isThuoc: !target.checked
         })
       }
 
@@ -116,7 +116,7 @@ const ThemSanPham = () => {
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: "Thêm sản phẩm thành công!",
+            title: "Lưu thành công!",
             showConfirmButton: false,
             timer: 2000,
           });
@@ -151,7 +151,7 @@ const ThemSanPham = () => {
                         <input name='title' id='title' value={data.title} onChange={handleInputChange}/>
                     </div>
                     <div className='content-editor-container'>
-                      <Checkbox label="Thực phẩm chức năng?" checked={data.isThuoc} onChange={handleCheckboxChange} style={{fontWeight: 'bold', fontSize: '1.1rem'}}/>
+                      <Checkbox label="Thực phẩm chức năng?" onChange={handleCheckboxChange} style={{fontWeight: 'bold', fontSize: '1.1rem'}}/>
                     </div>
 
                     <div className='content-editor-container'>

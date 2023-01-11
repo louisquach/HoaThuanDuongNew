@@ -32,8 +32,9 @@ function App() {
         <Route path="/tintuc-baiviet" element={<BaiVietPage />} />
         <Route exact path="/tintuc-baiviet/:baivietId" element={<BaivietSingle />} />
 
+        <Route path="/san-pham" element={<SanPhamPage />} />
         <Route exact path="/san-pham/thuoc" element={<SanPhamPage />} />
-        <Route exact path="/san-pham/thuc-pham-chuc-nang" element={<SanPhamPage isThuoc={false}/>} />
+        <Route exact path="/san-pham/thuc-pham-chuc-nang" element={<SanPhamPage />} />
         <Route exact path="/san-pham/:sanphamId" element={<SanphamSingle />} />
         
         <Route path="/lien-he" element={<LienHePage />} />

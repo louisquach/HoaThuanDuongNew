@@ -79,12 +79,22 @@ const Header = ({menus}) => {
                                     >
                                  <Dropdown.Menu className={'header-dropdown-menu'}>
                                     <Dropdown.Item className={'header-dropdown-menu-item'}>
-                                        <Link to={`${item.path}/thuoc`} >
+                                        <Link to={`${item.path}/thuoc`} className={'menu-item-text'}>
+                                            <img 
+                                                src={'/images/hoa-thuan-duong-logo.png'} 
+                                                alt='hoa thuan duong logo' 
+                                                className='sub-menu-icon'
+                                            />
                                             Thuốc Lưu Hành Nội Bộ
                                         </Link>
                                     </Dropdown.Item>
                                     <Dropdown.Item className={'header-dropdown-menu-item'}>
-                                        <Link to={`${item.path}/thuc-pham-chuc-nang`} >
+                                        <Link to={`${item.path}/thuc-pham-chuc-nang`} className={'menu-item-text'} >
+                                        <img 
+                                                src={'/images/hoa-thuan-duong-logo.png'} 
+                                                alt='hoa thuan duong logo' 
+                                                className='sub-menu-icon'
+                                            />
                                             Thực Phẩm Chức Năng
                                         </Link>
                                     </Dropdown.Item>

@@ -33,7 +33,7 @@ const SanPhamSection = () => {
                 }
             </div>
             <div id={'xemsp-d'}>
-                    <Link to={'/san-pham'} id={'xemsp-btn'}>Xem Tất Cả</Link>
+                    <Link to={'/san-pham/thuoc'} id={'xemsp-btn'}>Xem Tất Cả</Link>
             </div>
         </section>
     )

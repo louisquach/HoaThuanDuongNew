@@ -1,7 +1,35 @@
 #sanpham-page {
     width: 100%;
     min-height: 100vh;
-
+    
+    .section-header {
+        padding-top: 0 !important;
+    }
+    #sanpham-container-menu {
+        width: 100%;
+        margin: 0 auto;
+        padding: 3rem 5rem 0;
+        .sanpham-menu-container {
+            display: flex;
+        }
+        .sanpham-menu-item {
+            padding: .5rem 1rem;
+            background-color: lightseagreen;
+            border-radius: 3px;
+            color: white;
+            font-weight: bold;
+            font-size: .9rem;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.507);
+            cursor: pointer;
+            &:hover {
+                background-color: darken($color: lightseagreen, $amount: 5);
+            }
+            &:first-child {
+                margin-right: 5px;
+            }
+        }
+    }
     .sanpham-container {
         width: 90%;
         min-height: 100%;
@@ -13,6 +41,7 @@
         grid-row-gap: 5rem;
         flex-wrap: wrap;
         align-items: center;
+        position: relative;
     }
     .sanpham-card {
         display: flex;
@@ -56,6 +85,10 @@
     }
 }
 @media screen and (max-width: 800px) {
+    #sanpham-container-menu {
+        display: flex; 
+        justify-content: center;
+    }
     .sanpham-container {
         grid-template-columns: repeat(1,70%) !important;
         padding: 3rem 0rem !important;
@@ -76,5 +109,10 @@
 @media screen and (max-width: 520px) {
     .sanpham-container {
         grid-template-columns: repeat(1,90%) !important;
+    }
+}
+@media screen and (max-width: 380px) {
+    #sanpham-container-menu {
+        padding: 2rem 0 0 !important;
     }
 }

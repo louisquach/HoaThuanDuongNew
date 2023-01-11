@@ -75,6 +75,7 @@
             h5 {
                 width: 100%;
                 font-weight: 600;
+                font-size: 1;
             }
         }
         .sp-img-ctn {
@@ -94,13 +95,6 @@
         .sp-content-main {
             width: 100%;
             margin-top: 3rem;
-        }
-    }
-}
-@media screen and (max-width: 490px) {
-    .sp-tuongtu-title {
-        h5 {
-           text-align: center;
         }
     }
 }
