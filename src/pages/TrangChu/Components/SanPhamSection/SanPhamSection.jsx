@@ -25,7 +25,7 @@ const SanPhamSection = () => {
                     sanphams.map( (item, i) => {
                         return (
                             <div className={'sanpham-card'} key={`${i + item.title}`} onClick={ () => window.location.href = `/san-pham/${item.id}`}>
-                                <img src={item.fileRef} alt={item.title} className={'sanpham-card-img'} />
+                                <div className='sanpham-card-img' style={{backgroundImage: `url("${item.fileRef})`}}></div>
                                 <h4>{item.title}</h4>
                             </div>
                         )

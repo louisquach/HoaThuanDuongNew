@@ -44,13 +44,26 @@
         position: absolute;
         height: 40%;
         width: 100%;
-        background-color: rgba(253, 253, 253, 0.89);
-        opacity: 0.85;
+        // background-color: white;
+        backdrop-filter: blur(5px);
         left: 0;
         bottom: 0;
         color: rgba(0, 0, 0, 0.842);
         padding: 2rem;
         font-size: 1.2rem;
+        ;
+
+        &::after {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            background-color: white;
+            opacity: .4 ;
+        }
     }
     .tinnoibat-thumbnail {
         display:flex;
@@ -89,9 +102,12 @@
                 height: 4rem;
                 width: 25%;
                 border-radius: 5px;
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
             }
             .thumbnail-title {
-                text-align: center;
+                //text-align: le;
                 padding: 1rem;
                 font-size: 1rem;
             }

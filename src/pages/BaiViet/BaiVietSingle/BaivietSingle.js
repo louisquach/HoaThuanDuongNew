@@ -59,8 +59,8 @@ const BaivietSingle = () => {
                         return (
                             <Link to={`/tintuc-baiviet/${item.id}`} key={item.title + i}>
                                 <div className={'baiviet-khac-container'} >
-                                    <div className={'baiviet-khac-img'}>
-                                        <img src={item.fileRef} alt={item.title} className={'baiviet-img'}/>
+                                    <div className={'baiviet-khac-img'} style={{backgroundImage: `url("${item.fileRef}")`}}>
+                                        {/* <img src={item.fileRef} alt={item.title} className={'baiviet-img'}/> */}
                                     </div>
                                     <div className={'baiviet-khac-content'}>
                                         <h3 className='baiviet-khac-title'>{item.title}</h3>

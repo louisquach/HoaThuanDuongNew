@@ -53,13 +53,15 @@ const TinNoiBatSection = () => {
         setSelected(index)
     }
 
+    const content = baiviet[selected].content.slice(0, 300) + '...<strong style="color: teal">Xem tiếp</strong>\n\n';
+
     return (
         <section id={'trangchu-tinnoibat'}> 
             <div className={'tinnoibat-container'}>
                 <div className={'tinnoibat-carousel'}>
                     <Link className='tinnoibat-content' to={`/tintuc-baiviet/${baiviet[selected].id}`}>
                         <img className={'tinnoibat-img'} src={baiviet[selected].fileRef} alt="hinh thuoc"/>
-                        <p className='tinnoibat-text' dangerouslySetInnerHTML={{__html: baiviet[selected].content}}>
+                        <p className='tinnoibat-text' dangerouslySetInnerHTML={{__html: content}}>
                         </p>
                     </Link>
 
@@ -69,7 +71,7 @@ const TinNoiBatSection = () => {
                                 baiviet.map( (p, i) => {
                                     return (
                                         <div className={ i === selected ? 'thumbnail-card active' : 'thumbnail-card'} key={i} onClick={() => chonBaiViet(i)}>
-                                            <img src={p.fileRef} alt={p.title} className={'thumbnail-img'}/>
+                                            <div className={"thumbnail-img"} style={{backgroundImage:`url("${p.fileRef}")`}}></div>
                                             <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                                                 <h5 className={'thumbnail-title'}>{p.title}</h5>
                                             </div>

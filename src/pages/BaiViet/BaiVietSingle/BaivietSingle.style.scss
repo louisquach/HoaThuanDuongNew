@@ -45,15 +45,20 @@
         padding: 2rem 0;
         margin-top: 2rem;
         border-top: 1px solid lightgray;
-        height: 12rem;
+        height: 10rem;
         overflow: hidden;
 
         .baiviet-khac-img {
-            width: 20%;
+            height: 8rem;
+            aspect-ratio: 4/3;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin-right: 1rem;
 
-            .baiviet-img {
-                height: 100%;
-            }
+            // .baiviet-img {
+            //     height: 100%;
+            // }
         }
         .baiviet-khac-content {
             width: 60%;
