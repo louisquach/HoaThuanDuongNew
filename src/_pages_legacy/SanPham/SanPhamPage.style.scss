@@ -1,0 +1,139 @@
+#sanpham-page {
+    width: 100%;
+    min-height: 100vh;
+    
+    .section-header {
+        padding-top: 0 !important;
+    }
+    #sanpham-container-menu {
+        width: 100%;
+        margin: 0 auto;
+        padding: 3rem 5rem 0;
+        .sanpham-menu-container {
+            display: flex;
+        }
+        .sanpham-menu-item {
+            padding: .5rem 1rem;
+            background-color: lightseagreen;
+            border-radius: 3px;
+            color: white;
+            font-weight: bold;
+            font-size: .9rem;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.507);
+            cursor: pointer;
+            &:hover {
+                background-color: darken($color: lightseagreen, $amount: 5);
+            }
+            &:first-child {
+                margin-right: 5px;
+            }
+        }
+    }
+    .sanpham-container {
+        width: 90%;
+        min-height: 100%;
+        margin: 0 auto;
+        padding:3rem 5rem;
+        display: grid;
+        grid-template-columns: repeat(4, 20%);
+        grid-template-rows: auto;
+        grid-row-gap: 5rem;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+        position: relative;
+    }
+    .sanpham-card {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        aspect-ratio: 4/3;
+        align-items: center;
+        padding: 1rem;
+        color: teal;
+        transition: all ease-in-out .4s;
+        cursor: pointer;
+        border-radius: 5px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        
+        &:hover {
+            transform: scale(1.05);
+        }
+        h4 {
+            padding-top: 0rem;
+            margin: 1rem 0 0;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .sanpham-card-img {
+            height: 100%;
+            width: 100%;
+            padding: 0;
+            position: relative;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            &::after {
+                position: absolute;
+                content: "";
+                height: 100%;
+                width: 100%;
+                left: 0;
+                top: 0;
+                z-index: -1;
+                background: url('../../../public/images/sp-bg.jpg');
+                background-size: contain;
+                background-position: center;
+                opacity: .5;
+                filter: blur(3px);
+            }
+        }
+    }
+}
+@media screen and (max-width: 1440px) {
+    .sanpham-container {
+        grid-template-columns: repeat(3,30%) !important;
+        justify-content: space-between ;
+    }
+}
+@media screen and (max-width: 1150px) {
+    .sanpham-container {
+        grid-template-columns: repeat(2,40%) !important;
+        justify-content: space-around;
+        grid-row-gap: 3rem !important;
+    }
+}
+@media screen and (max-width: 800px) {
+    #sanpham-container-menu {
+        display: flex; 
+        justify-content: center;
+    }
+    .sanpham-container {
+        grid-template-columns: repeat(1,70%) !important;
+        padding: 3rem 0rem !important;
+        grid-row-gap: 3rem !important;
+        
+        .sanpham-card {
+            height: 30rem !important;
+        }
+    }
+}
+@media screen and (max-width: 680px) {
+    .sanpham-container {
+        .sanpham-card {
+            height: 35rem !important;
+        }
+    }
+}
+@media screen and (max-width: 520px) {
+    .sanpham-container {
+        grid-template-columns: repeat(1,90%) !important;
+    }
+}
+@media screen and (max-width: 380px) {
+    #sanpham-container-menu {
+        padding: 2rem 0 0 !important;
+    }
+}

@@ -1,0 +1,160 @@
+#trangchu-gioithieu {
+    height: 75vh;
+    width: 100%;
+    margin: 5rem 0 2rem;
+    background-image: url('./../../../../../public/images/product-bg.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 10;
+    #cloned-section {
+        height: 100%;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.658);
+    }
+
+    .gioithieu-container {
+        width: 70%;
+        height: 100%;
+        padding: 3rem;
+        margin: 0 auto;
+        display: flex;
+        
+
+        .gioithieu-img-container {
+            position: relative;
+            width: 50%;
+            height: 100%;
+
+            #hinh-nha-thuoc1, #hinh-nha-thuoc2, #hinh-nha-thuoc3 {
+                position: absolute;
+                width: 65%;
+                box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.562);
+                transition: all ease-in-out .5s;
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+            #hinh-nha-thuoc1 {
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 3;
+                &:hover {
+                    top: 50%;
+                    transform: translateY(-50%) scale(1.1);
+                    z-index: 5;
+                }
+            }
+            #hinh-nha-thuoc2 {
+                right: 10%;
+                top: 5%;
+                z-index: 2;
+                &:hover {
+                    z-index: 4;
+                }
+            }
+            #hinh-nha-thuoc3 {
+                right: -3%;
+                bottom: 10%;
+                z-index: 1;
+                &:hover {
+                    z-index: 4;
+                }
+            }
+        }
+        .gioithieu-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('../../../../../public/images/product-bg.jpeg');
+            width: 50%;
+            overflow: hidden;
+
+            .gioithieu-paraph {
+                padding: 2rem;
+                font-size: 1.6em;
+                padding-left:4rem;
+                line-height: 2.5rem;
+                min-height: 100%;
+                background-color: rgba(255, 255, 255, 0.658);
+            }
+        }
+    }
+    @media screen and (max-width: 1860px) {
+        .gioithieu-container {
+            width: 80%;
+        }
+    }
+    @media screen and (max-width: 1640px) {
+        .gioithieu-paraph {
+            font-size: 1.4rem !important;
+        }
+        .gioithieu-img-container {
+            img {
+                width: 60% !important;
+            }
+            #hinh-nha-thuoc1 {
+                left: 10% !important;
+                top: 60% !important; 
+            }
+            #hinh-nha-thuoc2 {
+                right: 10% !important;
+                top: 20% !important;
+            }
+            #hinh-nha-thuoc3 {
+                right: -3% !important;
+                bottom: 15% !important;
+            }
+        }
+    }
+    @media screen and (max-width: 1340px)  {
+        .gioithieu-container {
+            width: 100%;
+        }
+        .gioithieu-paraph {
+            font-size: 1.35rem !important;
+        }
+    }
+    @media screen and (max-width: 1070px) {
+        .gioithieu-container {
+            flex-direction: column;
+        }
+        .gioithieu-img-container {
+            display: flex;
+            flex-wrap: nowrap   ;
+            width: 100% !important;
+            #hinh-nha-thuoc1,#hinh-nha-thuoc2,#hinh-nha-thuoc3 {
+                position: relative !important;
+                transform: none !important;
+                top: unset !important;
+                left: unset !important;
+                right: unset !important;
+                bottom: unset !important;
+                &:hover {
+                    transform: scale(1.1) !important;
+                }
+            }
+        }
+        .gioithieu-content {
+            width: 100% !important;
+            margin: 4rem 0 0;
+            .gioithieu-paraph {
+                padding: 2rem 0 !important;
+                font-size: 1.5rem !important;
+
+            }
+        }
+    }
+    @media screen and (max-width: 680px) {
+        .gioithieu-content {
+            .gioithieu-paraph {
+                font-size: 1.8rem !important;
+            }
+        }
+    }
+}
+@media screen and (max-width: 1070px) {
+    #trangchu-gioithieu {
+        height: max-content !important;
+    }
+}

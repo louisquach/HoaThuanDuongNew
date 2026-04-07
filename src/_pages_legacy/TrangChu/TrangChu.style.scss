@@ -1,0 +1,26 @@
+#trangchu-container {
+    width: 100%;
+    background-color: white;
+    position: relative;
+
+    
+    #scroll-top-btn {
+        position: fixed;
+        right: 3rem;
+        bottom: 4rem;
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: lightgrey;
+        border: 2px solid lightgrey;
+        transition: all ease-in-out .3s;
+        &:hover {
+            border-color: greenyellow;
+            color: greenyellow;
+            background-color: white;
+        }
+    }
+}
