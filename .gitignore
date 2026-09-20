@@ -9,7 +9,8 @@
 /coverage
 
 # production
-
+/build
+/deploy-bundle
 
 # misc
 .DS_Store

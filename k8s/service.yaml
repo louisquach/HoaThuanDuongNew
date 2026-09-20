@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hoathuanduong-svc
+  namespace: hoathuanduong
+  labels:
+    app: hoathuanduong
+spec:
+  type: ClusterIP
+  selector:
+    app: hoathuanduong
+  ports:
+    - port: 80
+      targetPort: 3000
+      protocol: TCP
