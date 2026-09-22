@@ -23,7 +23,6 @@ spec:
         app: hoathuanduong
     spec:
       nodeSelector:
-        workload=primary: "true"
         workload: primary
       containers:
         - name: hoathuanduong
